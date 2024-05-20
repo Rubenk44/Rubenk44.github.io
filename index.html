@@ -6,9 +6,11 @@
     <title>My GitHub Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
         }
         header, footer {
             background-color: #333;
@@ -17,6 +19,7 @@
             text-align: center;
         }
         main {
+            flex: 1;
             padding: 20px;
         }
         nav a {
