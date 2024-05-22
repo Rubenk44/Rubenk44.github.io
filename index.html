@@ -30,6 +30,10 @@
             background-color: #fff; /* Hvid baggrund */
             color: #333; /* Sort tekstfarve */
             padding: 10px 20px;
+            z-index: 1; /* Sørg for, at headeren er ovenpå billedet */
+            position: fixed; /* Fiksér headeren */
+            top: 0;
+            left: 0;
         }
         .left-content h1 {
             margin: 0;
@@ -45,23 +49,22 @@
         }
         main {
             flex: 1;
-            padding: 20px;
-            background-color: #f0f0f0; /* Lysegrå baggrund */
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
         }
         .image-box {
             position: relative;
             width: 100%;
-            max-width: 600px;
-            margin: 20px 0;
+            height: 100vh; /* Sæt højden til hele viewporten */
+            margin: 0; /* Fjern margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .image-box img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%; /* Sørg for, at billedet fylder hele boksen */
+            object-fit: cover; /* Sørg for, at billedet dækker hele området uden at forvrænge */
         }
         .image-box .text-overlay {
             position: absolute;
@@ -73,6 +76,32 @@
             padding: 10px;
             text-align: center;
             border-radius: 5px;
+        }
+        .image-box .arrow-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            background-color: #f0f0f0; /* Lysegrå baggrund */
         }
         footer {
             display: flex;
@@ -112,14 +141,20 @@
         </nav>
     </header>
     <main>
-        <div class="image-box">
-            <img src="assets/computer-1209641_1920.jpeg" alt="Description of image">
+        <div id="home" class="image-box">
+            <img src="assets/blå.jpeg" alt="Description of image">
             <div class="text-overlay">Velkommen til min hjemmeside</div>
+            <div class="arrow-down" onclick="scrollToNextSection()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 16l-8-8h16z"/></svg>
+            </div>
         </div>
-        <h1>Velkommen</h1>
-        <p>Dette er min personlige hjemmeside.</p>
+        <div id="about" class="content">
+            <h1>Velkommen</h1>
+            <p>Dette er min personlige hjemmeside.</p>
+        </div>
     </main>
     <footer>
+        <div>&copy; 2024 Ruben Kronborg</div>
         <div class="social-icons">
             <!-- LinkedIn-logo -->
             <a href="https://www.linkedin.com/in/ruben-jensen-8655011b4/" target="_blank" aria-label="LinkedIn">
@@ -135,7 +170,12 @@
                 </svg>
             </a>
         </div>
-        <div>&copy; 2024 Ruben Kronborg</div>
     </footer>
+    <script>
+        function scrollToNextSection() {
+            const nextSection = document.querySelector('#about');
+            nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
