@@ -79,7 +79,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
+            color: rgb(255, 255, 255);
             z-index: 2; /* Sørg for, at teksten er foran overlay */
         }
         .content {
@@ -87,7 +87,7 @@
             padding: 20px;
             align-items: center;
             background-color: #353535; /* Lysegrå baggrund */
-            color: #656565;
+            color: #dad8d8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -103,7 +103,8 @@
             border-radius: 10%
         }
         .about-text {
-            width: 75%; /* Bredde til teksten */
+            width: 100%; /* Bredde til teksten */
+            align-items: left;
         }
         footer {
             display: flex;
@@ -129,6 +130,10 @@
             height: 24px;
             fill: white;
         }
+        .left-align {
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
@@ -150,11 +155,11 @@
         </div>
         <div id="about" class="content">
             <div class="about-image">
-                <img src="assets\IMG_1330.JPG" alt="Dit billede">
+                <img src="assets\website.png" alt="Dit billede">
             </div>
             <div class="about-text">
-                <left><h2><b>Om mig</b></h2></left>
-                <p>Dette er min personlige hjemmeside.</p>
+                <h2 class="left-align"><b>About me</b></h2>
+                <p class="Left-align">Replaced asdadas.</p>
             </div>
         </div>
     </main>
